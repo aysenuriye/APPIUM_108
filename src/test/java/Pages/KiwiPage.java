@@ -43,13 +43,19 @@ public class KiwiPage {
     @FindBy(xpath = "//*[@text='Choose']")
     public WebElement choose;
     @FindBy(xpath = "//*[@text='Departure:']")
-    public WebElement departureButon;
+    private WebElement departureButon;
+    public void departureButtonClick(){
+        departureButon.click();
+    }
     @FindBy(xpath = "//*[@text='Set date']")
     public WebElement setDateButon;
     @FindBy(xpath = "(//*[@text='Search'])[1]")
     public WebElement searchButon;
-    @FindBy(xpath = "//*[@text='$37.00']")
-    public WebElement ilkOptionAktarmasiz;
+    @FindBy(xpath = "(//*[@text='Stops'])[1]")
+    public  WebElement StopsButton;
+   @FindBy(xpath = "(//*[@class=\"android.widget.TextView\"])[12]")
+   public WebElement ticketPrice;
+
 
     @FindBy(xpath ="//*[@text='Explore the app']")
     public WebElement Explore_the_App_button;

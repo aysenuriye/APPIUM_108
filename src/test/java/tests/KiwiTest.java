@@ -29,7 +29,7 @@ public class KiwiTest {
         // misafir olarak devam et e tiklanir
         page.asAGuest.click();
         // ardinda gelecek olan 3 adimada yesil butona basilarak devam edilir
-        page.ucButtonTiklama(0, 3, 546, 2030, 2500);
+        KiwiPage.ucButtonTiklama(0, 3, 546, 2030, 2500);
         Thread.sleep(1000);
         page.Explore_the_App_button.click();
         // Trip type,one way olarak secilir
@@ -48,13 +48,14 @@ public class KiwiTest {
         driver.getKeyboard().pressKey("Gaziantep");
         page.gaziantep.click();
         page.choose.click();
- page.departureButon.click();
+ //page.departureButon.click();
+        page.departureButtonClick();
  Thread.sleep(2000);
         // gidis tarihi mayis ayinin 21 i olarak secilir ve set date e tiklanir
         TouchAction action = new TouchAction<>(driver);
-        action.press(PointOption.point(500, 1680)).
+        action.press(PointOption.point(489, 1671)).
                 waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).
-                moveTo(PointOption.point(500, 360)).release().perform();
+                moveTo(PointOption.point(490, 390)).release().perform();
         Thread.sleep(3000);
         action.press(PointOption.point(123, 1413)).release().perform();
 
@@ -68,7 +69,7 @@ public class KiwiTest {
         Thread.sleep(1000);
         action.press(PointOption.point(1005, 709)).release().perform();
         Thread.sleep(1000);
-        String biletFiyati = page.ilkOptionAktarmasiz.getText();
+        String biletFiyati = page.ticketPrice.getText();
 
         // gelen bilet fiyati kaydedilir ve kullanicin telefonuna sms olarak gonderilir
         driver.sendSMS("5074924284", biletFiyati);
